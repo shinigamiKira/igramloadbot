@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  insta-bot:
+    build: .
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CHAT_ID=${CHAT_ID}
+    volumes:
+      - ./downloads:/app/downloads
+    restart: unless-stopped
