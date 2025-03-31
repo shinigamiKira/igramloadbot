@@ -13,8 +13,8 @@ A Telegram bot that downloads and sends Instagram/YouTube media (photos/videos) 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/insta-scraper.git
-cd insta-scraper
+git clone https://github.com/shinigamiKira/igramloadbot.git
+cd igramloadbot
 ```
 
 2. Install dependencies:
@@ -98,3 +98,7 @@ docker-compose up -d
 ## Requirements
 
 See `requirements.txt` for complete dependency list.
+
+## Demo
+
+The bot is live at ```@igramloadbot``` in telegram
