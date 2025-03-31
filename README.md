@@ -70,6 +70,31 @@ This is currently a limitation of Instagram's API. Full-resolution images may re
 **Errors**  
 Check `scraper.log` for detailed error messages.
 
+## Docker Deployment
+
+### Using Docker CLI
+1. Build the image:
+```bash
+docker build -t insta-bot .
+```
+
+2. Run the container:
+```bash
+docker run -e BOT_TOKEN=your_token -e CHAT_ID=your_chat_id -v ./downloads:/app/downloads insta-bot
+```
+
+### Using Docker Compose
+1. Create `.env` file:
+```bash
+echo "BOT_TOKEN=your_token" > .env
+echo "CHAT_ID=your_chat_id" >> .env
+```
+
+2. Start the service:
+```bash
+docker-compose up -d
+```
+
 ## Requirements
 
 See `requirements.txt` for complete dependency list.
