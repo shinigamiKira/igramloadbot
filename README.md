@@ -1,104 +1,77 @@
-# Instagram/YouTube Media Downloader Bot
+# Instagram Media Downloader Bot (Python & Go Versions)
 
-A Telegram bot that downloads and sends Instagram/YouTube media (photos/videos) through inline queries or direct messages.
+A Telegram bot for downloading media from Instagram and other websites.  
+**Live Bot:** [@igramloadbot](https://t.me/igramloadbot)
 
 ## Features
-- Download Instagram and YouTube media
-- Supports both photos and videos
-- Inline query interface for easy sharing
-- Rate limiting to prevent abuse
-- Automatic cleanup of downloaded files
 
-## Setup
+- Download public Instagram posts (videos and photos)
+- Download content from other supported websites via yt-dlp
+- Available in both Python and Go implementations
+- Both direct messages and inline queries supported
 
-1. Clone the repository:
-```bash
-git clone https://github.com/shinigamiKira/igramloadbot.git
-cd igramloadbot
-```
+## Python Version
 
-2. Install dependencies:
+### Requirements
+- Python 3.8+
+- yt-dlp
+- python-telegram-bot
+
+### Installation
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Create `secrets.json` (see below)
-
-## Configuration
-
-Create `secrets.json` based on the template:
-```json
-{
-    "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
-    "chat_id": "YOUR_TELEGRAM_CHAT_ID"
-}
-```
-
-## Known Issues
-- Instagram photos may be cropped in preview (Instagram API limitation)
-- Some private/unavailable content may not download
-- Large videos may timeout (>20MB)
-
-## Usage
-
-1. Start the bot:
+### Running
 ```bash
-python scraper.py
+python bot.py
 ```
 
-2. In Telegram:
-- Send direct message with Instagram/YouTube link
-- Or use inline mode: `@YourBotName instagram.com/p/...`
+## Go Version
 
-## Secrets Template
+### Requirements
+- Go 1.20+
+- yt-dlp (via Python requirements.txt)
 
-`secrets.template.json`:
+### Installation
+```bash
+go mod download
+pip install -r requirements.txt  # for yt-dlp
+```
+
+### Running
+```bash
+go run scraper.go
+```
+
+## Common Configuration
 ```json
+// secrets.json
 {
-    "bot_token": "YOUR_BOT_TOKEN_FROM_BOTFATHER",
-    "chat_id": "YOUR_CHAT_ID_FOR_UPLOADS"
+  "bot_token": "YOUR_TELEGRAM_BOT_TOKEN", 
+  "chat_id": YOUR_CHAT_ID
 }
 ```
 
-> **Warning**: Never commit your actual `secrets.json` to version control!
+## Limitations
+⚠️ **Important Notes:**
+- Only works with **public** content
+- Private/restricted posts will show error message
+- Instagram Reels/Stories may not always work
+- Download speed depends on internet connection
+
+## Supported Websites
+The bot can download from:
+- Instagram (public posts)
+- YouTube, Twitter, TikTok, Facebook
+- [Full list of supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
 
 ## Troubleshooting
+If downloads fail:
+1. Verify content is public
+2. Check internet connection  
+3. Update yt-dlp: `pip install -U yt-dlp`
+4. Check logs for error details
 
-**Cropped Instagram Photos**  
-This is currently a limitation of Instagram's API. Full-resolution images may require additional scraping methods.
-
-**Errors**  
-Check `scraper.log` for detailed error messages.
-
-## Docker Deployment
-
-### Using Docker CLI
-1. Build the image:
-```bash
-docker build -t insta-bot .
-```
-
-2. Run the container:
-```bash
-docker run -e BOT_TOKEN=your_token -e CHAT_ID=your_chat_id -v ./downloads:/app/downloads insta-bot
-```
-
-### Using Docker Compose
-1. Create `.env` file:
-```bash
-echo "BOT_TOKEN=your_token" > .env
-echo "CHAT_ID=your_chat_id" >> .env
-```
-
-2. Start the service:
-```bash
-docker-compose up -d
-```
-
-## Requirements
-
-See `requirements.txt` for complete dependency list.
-
-## Demo
-
-The bot is live at ```@igramloadbot``` in telegram
+## License
+MIT
