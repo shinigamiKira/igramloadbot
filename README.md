@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ### Running
 ```bash
-python bot.py
+python scraper.py
 ```
 
 ## Go Version
