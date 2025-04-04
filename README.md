@@ -13,7 +13,7 @@ A Go-based Telegram bot that provides direct download links for Instagram videos
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/<your-username>/insta-scraper.git
+git clone https://github.com/shinigamiKira/igramloadbot.git
 cd insta-scraper
 ```
 
