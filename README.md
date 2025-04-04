@@ -1,77 +1,64 @@
-# Instagram Media Downloader Bot (Python & Go Versions)
+# Insta-Scraper Telegram Bot
 
-A Telegram bot for downloading media from Instagram and other websites.  
-**Live Bot:** [@igramloadbot](https://t.me/igramloadbot)
+A Go-based Telegram bot that provides direct download links for Instagram videos (currently supports videos only). Live bot: [@igramloadbot](https://t.me/igramloadbot)
 
 ## Features
 
-- Download public Instagram posts (videos and photos)
-- Download content from other supported websites via yt-dlp
-- Available in both Python and Go implementations
-- Both direct messages and inline queries supported
+- Direct video URL generation from Instagram posts/reels
+- Inline query support 
+- Fast and lightweight
+- Requires no client-side installation
 
-## Python Version
+## Setup Instructions
 
-### Requirements
-- Python 3.8+
-- yt-dlp
-- python-telegram-bot
-
-### Installation
+1. **Clone the repository**
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/<your-username>/insta-scraper.git
+cd insta-scraper
 ```
 
-### Running
-```bash
-python bot.py
-```
-
-## Go Version
-
-### Requirements
-- Go 1.20+
-- yt-dlp (via Python requirements.txt)
-
-### Installation
-```bash
-go mod download
-pip install -r requirements.txt  # for yt-dlp
-```
-
-### Running
-```bash
-go run scraper.go
-```
-
-## Common Configuration
+2. **Configure secrets**
+Create `config/secrets.json` with:
 ```json
-// secrets.json
 {
-  "bot_token": "YOUR_TELEGRAM_BOT_TOKEN", 
+  "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
   "chat_id": YOUR_CHAT_ID
 }
 ```
 
-## Limitations
-⚠️ **Important Notes:**
-- Only works with **public** content
-- Private/restricted posts will show error message
-- Instagram Reels/Stories may not always work
-- Download speed depends on internet connection
+3. **Build and run**
+```bash
+go mod tidy
+go build -o insta-scraper
+./insta-scraper
+```
 
-## Supported Websites
-The bot can download from:
-- Instagram (public posts)
-- YouTube, Twitter, TikTok, Facebook
-- [Full list of supported sites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md)
+## Features & Limitations
 
-## Troubleshooting
-If downloads fail:
-1. Verify content is public
-2. Check internet connection  
-3. Update yt-dlp: `pip install -U yt-dlp`
-4. Check logs for error details
+✓ Video downloads from:
+- Instagram Reels
+- Public posts
+- Stories (public accounts only)
+
+✗ Currently doesn't support:
+- Photo posts 
+- Private accounts
+- IGTV videos
+
+## Deployment
+
+The bot can be deployed using:
+- Docker (see Dockerfile)
+- Direct binary execution
+- Cloud platforms (AWS, GCP, Azure)
+
+## Contributing
+
+Pull requests are welcome! Please ensure:
+- Proper error handling 
+- Tests for new features
+- Backwards compatibility
 
 ## License
+
 MIT
