@@ -1,4 +1,3 @@
-downloads/*/
-instaenv/
 *.json
 *.log
+pyenv
