@@ -22,7 +22,9 @@ Create `config/secrets.json` with:
 ```json
 {
   "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
-  "chat_id": YOUR_CHAT_ID
+  "chat_id": YOUR_CHAT_ID,
+  "browser_type": "<chrome or chromium based browser>",
+  "browser_path": "C:/Program Files/Application/brave.exe"
 }
 ```
 
